@@ -4,11 +4,11 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
+@Getter
 public enum ProductType {
     FRUIT("Фрукт"),
     VEGETABLE("Овощ");
 
-    @Getter
     private final String name;
 
     public static ProductType fromString(String value) {
