@@ -1,9 +1,9 @@
 package com.testing.tasks.managers;
 
-import com.testing.tasks.pages.HomePage;
+import com.testing.tasks.pages.FoodPage;
 public class PageManager {
 
-    private HomePage homePage;
+    private FoodPage foodPage;
 
     private static PageManager INSTANCE;
 
@@ -17,11 +17,11 @@ public class PageManager {
         return INSTANCE;
     }
 
-    public HomePage getHomePage() {
-        if (homePage == null) {
-            homePage = new HomePage();
+    public FoodPage getHomePage() {
+        if (foodPage == null) {
+            foodPage = new FoodPage();
         }
-        return homePage;
+        return foodPage;
     }
 
 }
