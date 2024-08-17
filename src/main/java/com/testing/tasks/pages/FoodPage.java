@@ -27,11 +27,14 @@ public class FoodPage extends BasePage {
     @FindBy(xpath = "//button[@id='save']")
     private WebElement saveFoodButton;
 
-    @FindBy(xpath = "//table/tbody")
-    private WebElement foodTable;
-
     @FindBy(xpath = "//li/a[contains(text(), 'Песочница')]")
     private WebElement sandboxDropdownMenu;
+
+    @FindBy(xpath = "//tbody/tr")
+    private List<WebElement> tableRows;
+
+    @FindBy(css = "tbody tr:last-child")
+    private WebElement lastRow;
 
     @FindBy(xpath = "//a[@id='reset']")
     private WebElement resetData;
@@ -46,17 +49,18 @@ public class FoodPage extends BasePage {
         foodNameInput.sendKeys(product.getName());
         new Select(foodTypeSelect).selectByValue(product.getType().name());
         if (product.isExotic()) foodExoticCheckbox.click();
+        int initialRowsCount = tableRows.size();
         saveFoodButton.click();
+        waitForNewRowAdded(initialRowsCount);
         return this;
     }
 
     public Product getLastRowFromFoodTable() {
-        WebElement lastRow = foodTable.findElement(By.cssSelector("tr:last-child"));
-        String name = lastRow.findElement(By.xpath("./td[0]")).getText();
+        String name = lastRow.findElement(By.cssSelector("td:nth-child(2)")).getText();
         ProductType type = ProductType.fromString(lastRow.findElement(
-                By.xpath("./td[1]")).getText());
+                By.cssSelector("td:nth-child(3)")).getText());
         boolean exotic = Boolean.parseBoolean(lastRow.findElement(
-                By.xpath("./td[2]")).getText());
+                By.cssSelector("td:nth-child(4)")).getText());
         return new Product(name, type, exotic);
     }
 

@@ -17,7 +17,7 @@ public class PageManager {
         return INSTANCE;
     }
 
-    public FoodPage getHomePage() {
+    public FoodPage getFoodPage() {
         if (foodPage == null) {
             foodPage = new FoodPage();
         }
