@@ -11,7 +11,7 @@ import org.junit.jupiter.api.BeforeEach;
 
 import static com.testing.tasks.utils.PropertiesConstants.BASE_URL;
 
-public class BaseTests {
+public class BaseWebTests {
 
     protected final TestPropertiesManager properties = TestPropertiesManager.getInstance();
     protected final DriverManager driverManager = DriverManager.getInstance();

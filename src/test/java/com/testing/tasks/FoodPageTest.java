@@ -1,6 +1,6 @@
 package com.testing.tasks;
 
-import com.testing.tasks.base.BaseTests;
+import com.testing.tasks.base.BaseWebTests;
 import com.testing.tasks.models.Product;
 import com.testing.tasks.models.ProductType;
 import org.junit.jupiter.api.Assertions;
@@ -10,7 +10,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-public class FoodPageTest extends BaseTests {
+public class FoodPageTest extends BaseWebTests {
 
     @ParameterizedTest
     @MethodSource("provideFruitsToBeAdded")
