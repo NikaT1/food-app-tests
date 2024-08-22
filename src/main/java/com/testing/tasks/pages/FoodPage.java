@@ -46,6 +46,7 @@ public class FoodPage extends BasePage {
     }
 
     public FoodPage fillAndSubmitFoodForm(Product product) {
+        waitUntilWebElementToBeClickable(foodNameInput);
         foodNameInput.sendKeys(product.getName());
         new Select(foodTypeSelect).selectByValue(product.getType().name());
         if (product.isExotic()) foodExoticCheckbox.click();
