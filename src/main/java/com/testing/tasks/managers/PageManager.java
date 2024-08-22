@@ -24,4 +24,8 @@ public class PageManager {
         return foodPage;
     }
 
+    public void quitAllPages() {
+        foodPage = null;
+    }
+
 }

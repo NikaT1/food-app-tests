@@ -8,6 +8,7 @@ public class InitManager {
 
     private static final DriverManager driverManager = DriverManager.getInstance();
     private final static TestPropertiesManager properties = TestPropertiesManager.getInstance();
+    private final static PageManager pageManager = PageManager.getInstance();
 
     public static void initFramework() {
         driverManager.getDriver().manage().window().maximize();
@@ -19,5 +20,6 @@ public class InitManager {
 
     public static void quitFramework() {
         driverManager.quiteDriver();
+        pageManager.quitAllPages();
     }
 }
