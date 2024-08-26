@@ -40,6 +40,7 @@ public class FoodDBSteps {
 
     @И("/пользователь выполняет запрос на добавление нового продукта в таблицу: id(.)(\\d+), \"([^\"]*)\", \"([^\"]*)\" и (true|false)/")
     public void addProductToFoodTable(String idAction, int diff, String name, String type, Boolean is_exotic) throws SQLException {
+
         int id = changeIdByAction(idAction, diff);
 
         Product product = Product.builder()

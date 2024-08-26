@@ -51,6 +51,7 @@ public class FoodPage extends BasePage {
         new Select(foodTypeSelect).selectByValue(product.getType().name());
         if (product.isExotic()) foodExoticCheckbox.click();
         int initialRowsCount = tableRows.size();
+        attachScreenshot();
         saveFoodButton.click();
         waitForNewRowAdded(initialRowsCount);
         return this;
@@ -62,6 +63,7 @@ public class FoodPage extends BasePage {
                 By.cssSelector("td:nth-child(3)")).getText());
         boolean exotic = Boolean.parseBoolean(lastRow.findElement(
                 By.cssSelector("td:nth-child(4)")).getText());
+        attachScreenshot();
         return new Product(name, type, exotic);
     }
 

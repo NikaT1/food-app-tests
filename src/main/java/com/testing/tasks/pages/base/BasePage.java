@@ -1,6 +1,7 @@
 package com.testing.tasks.pages.base;
 
 import com.testing.tasks.managers.DriverManager;
+import io.qameta.allure.Attachment;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -33,6 +34,11 @@ public class BasePage {
             List<WebElement> element = webDriver.findElements(By.xpath("//tbody/tr"));
             return element != null && element.size() > initialRowsCount;
         });
+    }
+
+    @Attachment(value = "Скриншот")
+    protected byte[] attachScreenshot() {
+        return ((TakesScreenshot) driverManager.getDriver()).getScreenshotAs(OutputType.BYTES);
     }
 
 }
