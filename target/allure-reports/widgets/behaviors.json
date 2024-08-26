@@ -1,0 +1,1 @@
+{"total":2,"items":[{"uid":"7549c3a54faaf21034c00fdb83cc8afc","name":"Добавление нового продукта в базу данных","statistic":{"failed":0,"broken":0,"skipped":0,"passed":2,"unknown":0,"total":2}},{"uid":"3508002bbae1cd3e41c5abf182f2a664","name":"Добавление нового продукта в таблицу","statistic":{"failed":0,"broken":0,"skipped":0,"passed":2,"unknown":0,"total":2}}]}
