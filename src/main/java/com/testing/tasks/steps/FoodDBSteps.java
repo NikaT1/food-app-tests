@@ -97,7 +97,7 @@ public class FoodDBSteps {
     }
 
     @И("пользователь проверяет, что появилось сообщение об ошибке {string}")
-    public void checkLastError(String expectedError) throws SQLException {
+    public void checkLastError(String expectedError) {
         Assertions.assertTrue(lastError.contains(expectedError),
                 "Неверное sql error сообщение");
     }
