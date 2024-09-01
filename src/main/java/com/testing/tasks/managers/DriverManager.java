@@ -37,7 +37,7 @@ public class DriverManager {
     }
 
     private void initDriver() {
-        if ("remote".equalsIgnoreCase(TYPE_DRIVER)) {
+        if ("remote".equalsIgnoreCase(properties.getProperty(TYPE_DRIVER))) {
             initRemoteDriver();
         } else {
             setDriverDependsOnBrowser();
@@ -46,14 +46,14 @@ public class DriverManager {
 
     private void initRemoteDriver() {
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setBrowserName(TYPE_BROWSER);
+        capabilities.setBrowserName(properties.getProperty(TYPE_BROWSER));
         capabilities.setVersion("108.0");
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
                 "enableVNC", true,
                 "enableVideo", false
         ));
         try {
-            driver = new RemoteWebDriver(URI.create(SELENOID_URL).toURL(), capabilities);
+            driver = new RemoteWebDriver(URI.create(properties.getProperty(SELENOID_URL)).toURL(), capabilities);
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
